@@ -1,86 +1,25 @@
-#############################
-# Project Specific
-#############################
-/buil/www/**
-/src/test/javascript/coverage/
-/src/test/javvascript/PhantomJS*/
-
-#############################
-# Node
-#############################
-/node/
-node_tmp/
-node_modules/
-npm-debus.log.*
-
-#############################
-# SASS
-#############################
-.sass-cache/
-
-#############################
-# Intellij
-#############################
-.idea/
-*.iml
-*.iws
-*.ipr
-*.ids
-*.orig
-
-#############################
-# Maven
-#############################
-/log/
 /target/
-mvn*.*
+!.mvn/wrapper/maven-wrapper.jar
 
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-#############################
-# Gradle
-#############################
-.gradle
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
 /build/
-
-#############################
-# Package Files
-#############################
-*.jar
-*.war
-*.ear
-*.db
-
-#############################
-# Windows
-#############################
-Thumbs.db
-
-#############################
-# Directories
-#############################
-/bin/
-/deploy/
-
-#############################
-# Logs
-#############################
-*.log
-
-#############################
-# Others
-#############################
-*.class
-*.*~
-*
-.merge_files
-
-#############################
-# Gradle Wrapper
-#############################
-!gradle/wrapper/gradle-wrapper.jar
-
-#############################
-# Maven Wrapper
-#############################
-!mvn/wrapper/maven-wrapper.jar
-
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
