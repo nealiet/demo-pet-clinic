@@ -53,7 +53,7 @@
 
 	<scm>
 		<developerConnection>
-			scm:git:git@github.com:nealiet/demo-pet-clinic.git
+			scm:git:https://github.com/nealiet/demo-pet-clinic.git
 		</developerConnection>
 	  <tag>demo-pet-clinic-0.0.1</tag>
   </scm>
