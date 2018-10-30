@@ -46,6 +46,7 @@
 				</dependencies>
 				<configuration>
 					<goals>install</goals>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -55,6 +56,7 @@
 		<developerConnection>
 			scm:git:git@github.com:nealiet/demo-pet-clinic.git
 		</developerConnection>
-	  <tag>demo-pet-clinic-0.0.2</tag>
+		<url>scm:git:https://github.com/nealiet/demo-pet-clinic.git/tree/master</url>
+		<tag>demo-pet-clinic-0.0.2</tag>
   </scm>
 </project>
