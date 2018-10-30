@@ -1,4 +1,4 @@
-package demopetclinic;
+package com.teilaen.demopetclinic;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
