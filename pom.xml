@@ -4,7 +4,7 @@
 
 	<groupId>com.teilaen</groupId>
 	<artifactId>demo-pet-clinic</artifactId>
-	<version>0.0.4-SNAPSHOT</version>
+	<version>0.0.4</version>
 	<modules>
 		<module>pet-clinic-data</module>
 		<module>pet-clinic-web</module>
@@ -58,6 +58,6 @@
 		</developerConnection>
 		<connection>scm:git:git@github.com:nealiet/demo-pet-clinic.git</connection>
 		<url>scm:git:https://github.com/nealiet/demo-pet-clinic.git/tree/master</url>
-		<tag>demo-pet-clinic-0.0.2</tag>
+		<tag>demo-pet-clinic-0.0.4</tag>
   </scm>
 </project>
