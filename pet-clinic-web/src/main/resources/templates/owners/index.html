@@ -5,7 +5,8 @@
     <title>Owners</title>
 </head>
 <body>
-    <h1>Owners Index Page</h1>
+<!--/*@thymesVar id="owner" type="com.teilaen.demopetclinic.model.Owner"*/-->
+    <h1>List of Owners</h1>
 
     <table>
         <tr>
@@ -15,9 +16,9 @@
 
         </tr>
         <tr th:each="owner: ${owners}">
-            <td th:text="${owner.id}">123</td>
-            <td th:text="${owner.firstName}">Spring In Action</td>
-            <td th:text="${owner.lastName}">Spring In Action</td>
+            <td th:text="${owner?.id}">123</td>
+            <td th:text="${owner?.firstName}">Spring In Action</td>
+            <td th:text="${owner?.lastName}">Spring In Action</td>
 
         </tr>
     </table>
