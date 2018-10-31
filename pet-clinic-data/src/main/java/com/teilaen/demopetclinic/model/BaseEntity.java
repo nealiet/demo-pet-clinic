@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 public class BaseEntity implements Serializable {
 
-    
+
+
     // Hibernate recommends 'Box' types
     private Long id;
 
