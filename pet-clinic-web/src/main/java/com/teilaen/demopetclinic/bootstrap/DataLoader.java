@@ -1,11 +1,9 @@
 package com.teilaen.demopetclinic.bootstrap;
 
-import com.teilaen.demopetclinic.model.Owner;
-import com.teilaen.demopetclinic.model.Pet;
-import com.teilaen.demopetclinic.model.PetType;
-import com.teilaen.demopetclinic.model.Vet;
+import com.teilaen.demopetclinic.model.*;
 import com.teilaen.demopetclinic.services.OwnerService;
 import com.teilaen.demopetclinic.services.PetTypeService;
+import com.teilaen.demopetclinic.services.SpecialtyService;
 import com.teilaen.demopetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,15 +16,22 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
+    private final SpecialtyService specialtyService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
+        this.specialtyService = specialtyService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+        int count= petTypeService.findAll().size();
+        if (count==0)  loadData();
+    }
+
+    private void loadData() {
         PetType dog = new PetType();
         dog.setName("Dog");
         PetType savedDogType = petTypeService.save(dog);
@@ -65,16 +70,31 @@ public class DataLoader implements CommandLineRunner {
         cat1.setOwner(owner2);
         owner2.getPets().add(cat1);
 
+        /**  Save Specialties....  **/
+        Specialty s1 = new Specialty();
+        s1.setDescription("Radiology");
+        Specialty s2 = new Specialty();
+        s2.setDescription("Dental");
+        Specialty s3 = new Specialty();
+        s3.setDescription("Surgery");
+
+        specialtyService.save(s1);
+        specialtyService.save(s2);
+        specialtyService.save(s3);
+
         Vet vet1 = new Vet();
         vet1.setFirstName("Cindy");
         vet1.setLastName("Duerr");
+        vet1.getSpecialties().add(s1);
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
         vet2.setFirstName("Mark");
         vet2.setLastName("Feaster");
+        vet2.getSpecialties().add(s2);
+        vet2.getSpecialties().add(s3);
         vetService.save(vet2);
 
-        System.out.println("************ Loaded Vets.");
+        System.out.println("************ Loaded Data");
     }
 }
