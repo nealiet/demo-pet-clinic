@@ -14,4 +14,9 @@ public class IndexController {
 
     }
 
+    @RequestMapping({"/oups"})
+    public String oops() {
+        return "notImplemented";
+    }
+
 }
