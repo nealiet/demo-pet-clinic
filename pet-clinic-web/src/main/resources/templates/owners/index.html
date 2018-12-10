@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmnls:th="http://www.thymeleaf.org">
+<html lang="en" xmnls:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 <head>
     <meta charset="UTF-8"/>
     <title>Owners</title>
 </head>
 <body>
 <!--/*@thymesVar id="owner" type="com.teilaen.demopetclinic.model.Owner"*/-->
-    <h1>List of Owners</h1>
+<h2>Owners</h2>
 
-    <table>
+    <table class="table table-striped">
+        <thead>
         <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th style="width: 150px;">Id</th>
+            <th style="width: 200px;">First Name</th>
+            <th style="width: 120px;">Last Name</th>
 
         </tr>
+        </thead>
+        <tbody>
         <tr th:each="owner: ${owners}">
             <td th:text="${owner?.id}">123</td>
             <td th:text="${owner?.firstName}">Spring In Action</td>
             <td th:text="${owner?.lastName}">Spring In Action</td>
 
         </tr>
+        </tbody>
     </table>
 </body>
 </html>
