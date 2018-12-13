@@ -1,10 +1,7 @@
 package com.teilaen.demopetclinic.bootstrap;
 
 import com.teilaen.demopetclinic.model.*;
-import com.teilaen.demopetclinic.services.OwnerService;
-import com.teilaen.demopetclinic.services.PetTypeService;
-import com.teilaen.demopetclinic.services.SpecialtyService;
-import com.teilaen.demopetclinic.services.VetService;
+import com.teilaen.demopetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +14,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+                      SpecialtyService specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -53,7 +53,10 @@ public class DataLoader implements CommandLineRunner {
         dog1.setBirthDate(LocalDate.now());
         dog1.setPetName("Licorice");
         dog1.setOwner(owner1);
+
         owner1.getPets().add(dog1);
+
+
 
         Owner owner2= new Owner();
         owner2.setFirstName("Jane");
@@ -62,6 +65,13 @@ public class DataLoader implements CommandLineRunner {
         owner1.setCity("Arlington");
         owner1.setTelephone("221-221-2221");
         ownerService.save(owner2);
+
+        Visit v1 = new Visit();
+        v1.setPet(dog1);
+        v1.setDescription("Dog is sneezing");
+        v1.setDate(LocalDate.now());
+        visitService.save(v1);
+
 
         Pet cat1 = new Pet();
         cat1.setPetType(savedCatType);
