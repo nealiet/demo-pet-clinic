@@ -44,7 +44,26 @@ public class OwnerServiceSDJPA implements OwnerService {
 
     @Override
     public Owner save(Owner object) {
-        return ownerRepository.save(object);
+        /* if (object !=null) {
+            if (object.getPets().size()>0) {
+                object.getPets().forEach(pet -> {
+                    if (pet.getPetType() != null) {
+                        if (pet.getPetType().getId() == null) {
+                            pet.setPetType(petTypeRepository.save(pet.getPetType()));
+                        }
+
+                    } else {
+                        throw new RuntimeException("Pet type is required");
+                    }
+                    if (pet.getId()==null) {
+                        Pet savedPet = petRepository.save(pet);
+                        pet.setId(savedPet.getId());
+                    }
+                });
+
+            } */
+            return ownerRepository.save(object);
+
     }
 
     @Override
